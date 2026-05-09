@@ -15,7 +15,7 @@ pd.read_sql("""SELECT * FROM planets; """, conn1)
 df_no_moons = pd.read_sql("""
 SELECT *
 FROM planets
-WHERE moons = 0;
+WHERE num_of_moons = 0;
 """, conn1)
 
 # STEP 2
@@ -41,7 +41,7 @@ WHERE mass <= 1.00;
 df_mass_moon = pd.read_sql("""
 SELECT *
 FROM planets
-WHERE moons >= 1
+WHERE num_of_moons >= 1
 AND mass < 1.00;
 """, conn1)
 
@@ -133,10 +133,10 @@ GROUP BY team;
 # STEP 12
 # Replace None with your code
 df_at_bats = pd.read_sql("""
-SELECT team, AVG(AB) AS average_at_bats
+SELECT team, AVG(at_bats) AS average_at_bats
 FROM babe_ruth_stats
 GROUP BY team
-HAVING AVG(AB) > 200;
+HAVING AVG(at_bats) > 200;
 """, conn3)
 
 
